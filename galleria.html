@@ -31,7 +31,6 @@ body {
   color: var(--charcoal);
 }
 
-/* NAV */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
@@ -53,7 +52,6 @@ nav {
 }
 .nav-links a:hover, .nav-links a.active { color: var(--terracotta); }
 
-/* HEADER */
 .page-header {
   padding: 9rem 4rem 4rem;
   background: var(--cream);
@@ -77,7 +75,6 @@ nav {
   font-size: 1rem; color: var(--muted); max-width: 55ch; line-height: 1.7;
 }
 
-/* FILTER BAR */
 .filter-bar {
   padding: 1.5rem 4rem;
   border-bottom: 0.5px solid var(--border);
@@ -102,10 +99,8 @@ nav {
   border-color: var(--terracotta);
 }
 
-/* GALLERY GRID */
-.gallery-section {
-  padding: 3rem 4rem 6rem;
-}
+.gallery-section { padding: 3rem 4rem 6rem; }
+
 .gallery-grid {
   columns: 4 240px;
   column-gap: 12px;
@@ -149,7 +144,6 @@ nav {
 }
 .gallery-item[data-hidden="true"] { display: none; }
 
-/* LIGHTBOX */
 .lightbox {
   display: none;
   position: fixed; inset: 0; z-index: 200;
@@ -163,8 +157,7 @@ nav {
 }
 .lightbox-img {
   max-width: 90vw; max-height: 80vh;
-  object-fit: contain;
-  display: block;
+  object-fit: contain; display: block;
 }
 .lightbox-caption {
   color: rgba(250,247,242,0.6);
@@ -191,21 +184,6 @@ nav {
   border-color: rgba(250,247,242,0.6); color: white;
 }
 
-/* UPLOAD HINT */
-.upload-hint {
-  background: var(--cream);
-  border: 0.5px dashed rgba(196,82,42,0.3);
-  padding: 2rem 2.5rem;
-  margin: 0 4rem 3rem;
-  display: flex; align-items: center; gap: 1.5rem;
-}
-.upload-hint-icon {
-  font-size: 2rem; color: var(--terracotta); flex-shrink: 0;
-}
-.upload-hint-text { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
-.upload-hint-text strong { color: var(--mid-brown); font-weight: 500; }
-
-/* FOOTER */
 .page-footer {
   background: var(--dark-brown);
   padding: 2rem 4rem;
@@ -214,12 +192,10 @@ nav {
 .footer-copy { font-size: 0.72rem; color: rgba(250,247,242,0.2); }
 .footer-back {
   font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
-  color: rgba(250,247,242,0.4); text-decoration: none;
-  transition: color 0.2s;
+  color: rgba(250,247,242,0.4); text-decoration: none; transition: color 0.2s;
 }
 .footer-back:hover { color: rgba(250,247,242,0.8); }
 
-/* LANG */
 .it { display: revert; }
 .en { display: none !important; }
 body.en-active .it { display: none !important; }
@@ -245,7 +221,6 @@ body.en-active span.en { display: inline !important; }
   nav { padding: 1rem 1.5rem; }
   .nav-links { display: none; }
   .page-header, .gallery-section, .filter-bar { padding-left: 1.5rem; padding-right: 1.5rem; }
-  .upload-hint { margin-left: 1.5rem; margin-right: 1.5rem; }
   .gallery-grid { columns: 2 160px; }
   .lightbox-prev { left: 0.5rem; }
   .lightbox-next { right: 0.5rem; }
@@ -262,7 +237,6 @@ body.en-active span.en { display: inline !important; }
     <li><a href="index.html#storia"><span class="it">La Storia</span><span class="en">History</span></a></li>
     <li><a href="index.html#servizi"><span class="it">Servizi</span><span class="en">Services</span></a></li>
     <li><a href="galleria.html" class="active"><span class="it">Galleria</span><span class="en">Gallery</span></a></li>
-    <li><a href="index.html#blog">Blog</a></li>
     <li><a href="index.html#contatti"><span class="it">Contatti</span><span class="en">Contact</span></a></li>
   </ul>
   <div class="lang-toggle">
@@ -292,7 +266,7 @@ body.en-active span.en { display: inline !important; }
     <span class="it">Il Gruppo</span><span class="en">The Group</span>
   </button>
   <button class="filter-btn" onclick="filterGallery('festival', this)">
-    <span class="it">Festival</span><span class="en">Festivals</span>
+    Festival
   </button>
   <button class="filter-btn" onclick="filterGallery('spettacolo', this)">
     <span class="it">Spettacoli</span><span class="en">Performances</span>
@@ -302,151 +276,180 @@ body.en-active span.en { display: inline !important; }
   </button>
 </div>
 
-<div class="upload-hint">
-  <div class="upload-hint-icon">+</div>
-  <p class="upload-hint-text">
-    <span class="it"><strong>Per aggiungere nuove foto:</strong> salva le immagini nella cartella <code>images/</code> accanto a questo file, poi copia uno dei blocchi <code>&lt;div class="gallery-item"&gt;</code> qui sotto e cambia il nome del file e la didascalia.</span>
-    <span class="en"><strong>To add new photos:</strong> save images in the <code>images/</code> folder next to this file, then copy one of the <code>&lt;div class="gallery-item"&gt;</code> blocks below and change the filename and caption.</span>
-  </p>
-</div>
-
 <div class="gallery-section">
   <div class="gallery-grid" id="gallery">
 
-    <!-- ═══ GRUPPO ═══ -->
-    <div class="gallery-item" data-cat="gruppo" onclick="openLightbox(0)">
-      <img src="images/DSC_01__3_.JPG" alt="Gruppo Viginti Millys in costumi tradizionali siciliani con carretto"/>
+    <!-- GRUPPO -->
+    <div class="gallery-item" data-cat="gruppo" onclick="openLightbox(this)">
+      <img src="images/DSC_01__3_.JPG" alt="Gruppo Viginti Millys con carretto siciliano decorato"/>
       <div class="gallery-item-overlay">
-        <p class="gallery-item-caption"><span class="it">Il gruppo con il carretto siciliano</span><span class="en">The group with the Sicilian cart</span></p>
+        <p class="gallery-item-caption">
+          <span class="it">Il gruppo con il carretto siciliano</span>
+          <span class="en">The group with the Sicilian cart</span>
+        </p>
       </div>
     </div>
 
-    <div class="gallery-item" data-cat="gruppo" onclick="openLightbox(1)">
-      <img src="images/DSC_01__8_.JPG" alt="Gruppo Viginti Millys formazione completa"/>
+    <div class="gallery-item" data-cat="gruppo" onclick="openLightbox(this)">
+      <img src="images/15.JPG" alt="Formazione completa del gruppo con cavallo e carretto"/>
       <div class="gallery-item-overlay">
-        <p class="gallery-item-caption"><span class="it">Formazione completa del gruppo</span><span class="en">Full group formation</span></p>
+        <p class="gallery-item-caption">
+          <span class="it">Formazione completa — Lascari</span>
+          <span class="en">Full group formation — Lascari</span>
+        </p>
       </div>
     </div>
 
-    <div class="gallery-item" data-cat="gruppo" onclick="openLightbox(2)">
-      <img src="images/5.JPG" alt="Il gruppo in piazza con i costumi"/>
+    <div class="gallery-item" data-cat="gruppo" onclick="openLightbox(this)">
+      <img src="images/DSC_01__1_.JPG" alt="Gruppo in costume sui gradini della chiesa"/>
       <div class="gallery-item-overlay">
-        <p class="gallery-item-caption"><span class="it">Spettacolo in piazza</span><span class="en">Town square performance</span></p>
+        <p class="gallery-item-caption">
+          <span class="it">Davanti alla chiesa di Lascari</span>
+          <span class="en">In front of Lascari church</span>
+        </p>
       </div>
     </div>
 
-    <div class="gallery-item" data-cat="gruppo" onclick="openLightbox(3)">
-      <img src="images/Foto39.jpg" alt="Gruppo davanti alla Cattedrale di Cefalù"/>
+    <div class="gallery-item" data-cat="gruppo" onclick="openLightbox(this)">
+      <img src="images/13.JPG" alt="Gruppo in piazza con bandiera italiana"/>
       <div class="gallery-item-overlay">
-        <p class="gallery-item-caption"><span class="it">Davanti alla Cattedrale di Cefalù</span><span class="en">In front of Cefalù Cathedral</span></p>
+        <p class="gallery-item-caption">
+          <span class="it">Sfilata in piazza</span>
+          <span class="en">Parade in the piazza</span>
+        </p>
       </div>
     </div>
 
-    <div class="gallery-item" data-cat="gruppo" onclick="openLightbox(4)">
-      <img src="images/Foto56.jpg" alt="Gruppo Viginti Millys all'estero"/>
+    <div class="gallery-item" data-cat="gruppo" onclick="openLightbox(this)">
+      <img src="images/Family_Folk.jpg" alt="Famiglia in costume folk siciliano"/>
       <div class="gallery-item-overlay">
-        <p class="gallery-item-caption"><span class="it">In trasferta internazionale</span><span class="en">On international tour</span></p>
+        <p class="gallery-item-caption">
+          <span class="it">Una famiglia del gruppo</span>
+          <span class="en">A family from the group</span>
+        </p>
       </div>
     </div>
 
-    <div class="gallery-item" data-cat="gruppo" onclick="openLightbox(5)">
-      <img src="images/Foto58.jpg" alt="Con gruppo folkloristico russo"/>
+    <div class="gallery-item" data-cat="gruppo" onclick="openLightbox(this)">
+      <img src="images/Foto56.jpg" alt="Gruppo Viginti Millys in trasferta internazionale"/>
       <div class="gallery-item-overlay">
-        <p class="gallery-item-caption"><span class="it">Con il gruppo russo ospite</span><span class="en">With the Russian guest group</span></p>
+        <p class="gallery-item-caption">
+          <span class="it">In trasferta internazionale</span>
+          <span class="en">On international tour</span>
+        </p>
       </div>
     </div>
 
-    <!-- ═══ FESTIVAL ═══ -->
-    <div class="gallery-item" data-cat="festival" onclick="openLightbox(6)">
-      <img src="images/16.JPG" alt="Festival Internazionale del Folklore Codrongianos Sardegna"/>
+    <!-- FESTIVAL -->
+    <div class="gallery-item" data-cat="festival" onclick="openLightbox(this)">
+      <img src="images/16.JPG" alt="Festival Internazionale del Folklore — Codrongianos, Sardegna"/>
       <div class="gallery-item-overlay">
-        <p class="gallery-item-caption"><span class="it">Festival Internazionale — Sardegna</span><span class="en">International Festival — Sardinia</span></p>
+        <p class="gallery-item-caption">
+          <span class="it">Festival Internazionale — Sardegna</span>
+          <span class="en">International Festival — Sardinia</span>
+        </p>
       </div>
     </div>
 
-    <div class="gallery-item" data-cat="festival" onclick="openLightbox(7)">
-      <img src="images/29.JPG" alt="Festival Internazionale con gruppi stranieri in Ungheria"/>
+    <div class="gallery-item" data-cat="festival" onclick="openLightbox(this)">
+      <img src="images/DSC_01__11_.JPG" alt="Festival internazionale del folklore con pubblico"/>
       <div class="gallery-item-overlay">
-        <p class="gallery-item-caption"><span class="it">Festival — Ungheria, con la scritta «Olaszország Lascari»</span><span class="en">Festival — Hungary, sign reads «Italy Lascari»</span></p>
+        <p class="gallery-item-caption">
+          <span class="it">Festival Internazionale del Folklore</span>
+          <span class="en">International Folklore Festival</span>
+        </p>
       </div>
     </div>
 
-    <div class="gallery-item" data-cat="festival" onclick="openLightbox(8)">
-      <img src="images/30.JPG" alt="Gruppo in trasferta"/>
+    <div class="gallery-item" data-cat="festival" onclick="openLightbox(this)">
+      <img src="images/6.jpg" alt="Premio riconoscimento in chiesa"/>
       <div class="gallery-item-overlay">
-        <p class="gallery-item-caption"><span class="it">In trasferta per il festival</span><span class="en">Travelling to the festival</span></p>
+        <p class="gallery-item-caption">
+          <span class="it">Cerimonia di premiazione</span>
+          <span class="en">Award ceremony</span>
+        </p>
       </div>
     </div>
 
-    <div class="gallery-item" data-cat="festival" onclick="openLightbox(9)">
-      <img src="images/Foto55.jpg" alt="Festival internazionale del folklore"/>
+    <!-- SPETTACOLI -->
+    <div class="gallery-item" data-cat="spettacolo" onclick="openLightbox(this)">
+      <img src="images/26.JPG" alt="Coppia di istruttori in costume con tamburello"/>
       <div class="gallery-item-overlay">
-        <p class="gallery-item-caption"><span class="it">Festival Internazionale del Folklore</span><span class="en">International Folklore Festival</span></p>
+        <p class="gallery-item-caption">
+          <span class="it">Istruttori con il tamburello</span>
+          <span class="en">Instructors with tambourine</span>
+        </p>
       </div>
     </div>
 
-    <div class="gallery-item" data-cat="festival" onclick="openLightbox(10)">
-      <img src="images/Foto66.jpg" alt="Festival con gruppi internazionali"/>
+    <div class="gallery-item" data-cat="spettacolo" onclick="openLightbox(this)">
+      <img src="images/Foto48.JPG" alt="Giovani ballerini in costume sul palco"/>
       <div class="gallery-item-overlay">
-        <p class="gallery-item-caption"><span class="it">Con i gruppi ospiti internazionali</span><span class="en">With international guest groups</span></p>
+        <p class="gallery-item-caption">
+          <span class="it">I giovani ballerini sul palco</span>
+          <span class="en">Young dancers on stage</span>
+        </p>
       </div>
     </div>
 
-    <!-- ═══ SPETTACOLI ═══ -->
-    <div class="gallery-item" data-cat="spettacolo" onclick="openLightbox(11)">
-      <img src="images/28.jpg" alt="Spettacolo di danza folk siciliana sul palco"/>
+    <div class="gallery-item" data-cat="spettacolo" onclick="openLightbox(this)">
+      <img src="images/DSC_01__7_.jpg" alt="Ballerino con fisarmonica in costume folk"/>
       <div class="gallery-item-overlay">
-        <p class="gallery-item-caption"><span class="it">Spettacolo sul palco</span><span class="en">Stage performance</span></p>
+        <p class="gallery-item-caption">
+          <span class="it">Musicisti e ballerini</span>
+          <span class="en">Musicians and dancers</span>
+        </p>
       </div>
     </div>
 
-    <div class="gallery-item" data-cat="spettacolo" onclick="openLightbox(12)">
-      <img src="images/13.JPG" alt="Ballerini in costume durante spettacolo folk"/>
+    <div class="gallery-item" data-cat="spettacolo" onclick="openLightbox(this)">
+      <img src="images/8.jpg" alt="Coppia in costume di notte durante spettacolo"/>
       <div class="gallery-item-overlay">
-        <p class="gallery-item-caption"><span class="it">Danza tradizionale</span><span class="en">Traditional dance</span></p>
+        <p class="gallery-item-caption">
+          <span class="it">Serata folk all'aperto</span>
+          <span class="en">Outdoor folk evening</span>
+        </p>
       </div>
     </div>
 
-    <div class="gallery-item" data-cat="spettacolo" onclick="openLightbox(13)">
-      <img src="images/26.JPG" alt="Coppia di ballerini folk con tamburello"/>
+    <!-- COSTUMI -->
+    <div class="gallery-item" data-cat="costumi" onclick="openLightbox(this)">
+      <img src="images/DSC_01__2_.JPG" alt="Ballerina in costume tradizionale siciliano con tamburello"/>
       <div class="gallery-item-overlay">
-        <p class="gallery-item-caption"><span class="it">Istruttori in costume con il tamburello</span><span class="en">Instructors in costume with tambourine</span></p>
+        <p class="gallery-item-caption">
+          <span class="it">Costume tradizionale siciliano</span>
+          <span class="en">Traditional Sicilian costume</span>
+        </p>
       </div>
     </div>
 
-    <div class="gallery-item" data-cat="spettacolo" onclick="openLightbox(14)">
-      <img src="images/Foto41.JPG" alt="Spettacolo serale con pubblico"/>
+    <div class="gallery-item" data-cat="costumi" onclick="openLightbox(this)">
+      <img src="images/17.JPG" alt="Ballerino in costume con cavallo addobbato"/>
       <div class="gallery-item-overlay">
-        <p class="gallery-item-caption"><span class="it">Serata folk con pubblico</span><span class="en">Folk evening with audience</span></p>
+        <p class="gallery-item-caption">
+          <span class="it">Con il cavallo addobbato</span>
+          <span class="en">With the decorated horse</span>
+        </p>
       </div>
     </div>
 
-    <div class="gallery-item" data-cat="spettacolo" onclick="openLightbox(15)">
-      <img src="images/Foto48.JPG" alt="Ballerini giovani sul palco"/>
+    <div class="gallery-item" data-cat="costumi" onclick="openLightbox(this)">
+      <img src="images/10.jpg" alt="Giovane ballerina in costume folk siciliano"/>
       <div class="gallery-item-overlay">
-        <p class="gallery-item-caption"><span class="it">I giovani ballerini sul palco</span><span class="en">Young dancers on stage</span></p>
+        <p class="gallery-item-caption">
+          <span class="it">Giovane ballerina</span>
+          <span class="en">Young dancer</span>
+        </p>
       </div>
     </div>
 
-    <!-- ═══ COSTUMI ═══ -->
-    <div class="gallery-item" data-cat="costumi" onclick="openLightbox(16)">
-      <img src="images/DSC_01__2_.JPG" alt="Ballerina in costume tradizionale siciliano"/>
+    <div class="gallery-item" data-cat="costumi" onclick="openLightbox(this)">
+      <img src="images/11.jpg" alt="Il più piccolo del gruppo in costume folk"/>
       <div class="gallery-item-overlay">
-        <p class="gallery-item-caption"><span class="it">Costume tradizionale siciliano</span><span class="en">Traditional Sicilian costume</span></p>
-      </div>
-    </div>
-
-    <div class="gallery-item" data-cat="costumi" onclick="openLightbox(17)">
-      <img src="images/10.jpg" alt="Giovane ballerina in costume folk"/>
-      <div class="gallery-item-overlay">
-        <p class="gallery-item-caption"><span class="it">Giovane ballerina</span><span class="en">Young dancer</span></p>
-      </div>
-    </div>
-
-    <div class="gallery-item" data-cat="costumi" onclick="openLightbox(18)">
-      <img src="images/11.jpg" alt="Bambino piccolo in costume folk siciliano"/>
-      <div class="gallery-item-overlay">
-        <p class="gallery-item-caption"><span class="it">Il più piccolo del gruppo!</span><span class="en">The youngest member!</span></p>
+        <p class="gallery-item-caption">
+          <span class="it">Il più piccolo del gruppo!</span>
+          <span class="en">The youngest member!</span>
+        </p>
       </div>
     </div>
 
@@ -491,14 +494,15 @@ let currentIndex = 0;
 let visibleItems = [];
 
 function buildIndex() {
-  visibleItems = Array.from(document.querySelectorAll('.gallery-item:not([data-hidden="true"])'));
+  visibleItems = Array.from(
+    document.querySelectorAll('.gallery-item:not([data-hidden="true"])')
+  );
 }
 buildIndex();
 
-function openLightbox(idx) {
+function openLightbox(el) {
   buildIndex();
-  const clickedSrc = document.querySelectorAll('.gallery-item')[idx].querySelector('img').src;
-  currentIndex = visibleItems.findIndex(el => el.querySelector('img').src === clickedSrc);
+  currentIndex = visibleItems.indexOf(el);
   if (currentIndex === -1) currentIndex = 0;
   showLightboxItem();
   document.getElementById('lightbox').classList.add('open');
@@ -512,7 +516,7 @@ function showLightboxItem() {
   document.getElementById('lightbox-img').src = img.src;
   document.getElementById('lightbox-img').alt = img.alt;
   document.getElementById('lightbox-caption').textContent =
-    cap ? cap.textContent.trim() : '';
+    cap ? cap.innerText.trim() : '';
 }
 
 function changeLightbox(dir) {
