@@ -674,7 +674,94 @@ textarea.form-control {
   margin-top: 0.5rem;
 }
 .btn-submit:hover { background: var(--terracotta-dark); }
+<!--
+  ════════════════════════════════════════════════════════
+  PASTE THIS ENTIRE BLOCK into index.html
+  just BEFORE the <!-- BLOG --> comment (around line 490)
+  ════════════════════════════════════════════════════════
+-->
 
+<!-- GALLERY TEASER -->
+<section id="galleria" style="background: var(--cream); padding: var(--section-gap) 4rem;">
+  <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:3rem;">
+    <div>
+      <p class="section-tag">
+        <span class="it">Archivio fotografico</span><span class="en">Photo archive</span>
+      </p>
+      <h2 class="section-title">
+        <span class="it">Il gruppo<br>in immagini</span>
+        <span class="en">The group<br>in pictures</span>
+      </h2>
+    </div>
+    <a class="btn-primary" href="galleria.html">
+      <span class="it">Vedi tutta la galleria →</span>
+      <span class="en">View full gallery →</span>
+    </a>
+  </div>
+
+  <div style="display:grid; grid-template-columns: 1.4fr 1fr 1fr; grid-template-rows: 220px 220px; gap:10px;">
+
+    <!-- Large left — spans both rows -->
+    <div style="grid-row: 1 / 3; overflow:hidden; cursor:pointer;" onclick="window.location='galleria.html'">
+      <img src="images/DSC_01__3_.JPG"
+           alt="Gruppo Viginti Millys con carretto siciliano"
+           style="width:100%; height:100%; object-fit:cover; display:block;
+                  transition:transform 0.4s; filter:saturate(0.95);"
+           onmouseover="this.style.transform='scale(1.03)'"
+           onmouseout="this.style.transform='scale(1)'"/>
+    </div>
+
+    <!-- Top centre — Sardinia festival -->
+    <div style="overflow:hidden; cursor:pointer;" onclick="window.location='galleria.html'">
+      <img src="images/16.JPG"
+           alt="Festival Internazionale del Folklore — Sardegna"
+           style="width:100%; height:100%; object-fit:cover; display:block;
+                  transition:transform 0.4s;"
+           onmouseover="this.style.transform='scale(1.03)'"
+           onmouseout="this.style.transform='scale(1)'"/>
+    </div>
+
+    <!-- Top right — group on church steps -->
+    <div style="overflow:hidden; cursor:pointer;" onclick="window.location='galleria.html'">
+      <img src="images/DSC_01__1_.JPG"
+           alt="Gruppo in costume davanti alla chiesa"
+           style="width:100%; height:100%; object-fit:cover; display:block;
+                  transition:transform 0.4s;"
+           onmouseover="this.style.transform='scale(1.03)'"
+           onmouseout="this.style.transform='scale(1)'"/>
+    </div>
+
+    <!-- Bottom centre — couple with tambourine -->
+    <div style="overflow:hidden; cursor:pointer;" onclick="window.location='galleria.html'">
+      <img src="images/26.JPG"
+           alt="Istruttori in costume con tamburello"
+           style="width:100%; height:100%; object-fit:cover; display:block;
+                  transition:transform 0.4s;"
+           onmouseover="this.style.transform='scale(1.03)'"
+           onmouseout="this.style.transform='scale(1)'"/>
+    </div>
+
+    <!-- Bottom right — man with horse + "see all" overlay -->
+    <div style="overflow:hidden; cursor:pointer; position:relative;" onclick="window.location='galleria.html'">
+      <img src="images/17.JPG"
+           alt="Ballerino in costume con cavallo siciliano"
+           style="width:100%; height:100%; object-fit:cover; display:block;
+                  transition:transform 0.4s;"
+           onmouseover="this.style.transform='scale(1.03)'"
+           onmouseout="this.style.transform='scale(1)'"/>
+      <div style="position:absolute;inset:0;background:rgba(28,26,22,0.45);
+                  display:flex;align-items:center;justify-content:center;pointer-events:none;">
+        <span style="color:white;font-family:'Cormorant Garamond',serif;
+                     font-size:1.1rem;font-style:italic;letter-spacing:0.05em;">
+          <span class="it">Vedi tutte le foto</span>
+          <span class="en">See all photos</span>
+        </span>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- END GALLERY TEASER -->
 /* ─── BLOG ─── */
 #blog {
   background: var(--warm-white);
